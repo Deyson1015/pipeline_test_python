@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        PYTHON = "python" 
+        PYTHON = "python" // o python3 si está así en tu sistema
     }
 
     stages {
@@ -15,14 +15,14 @@ pipeline {
         stage('Instalar dependencias') {
             steps {
                 echo 'Instalando dependencias...'
-                sh 'pip install -r requirements.txt'
+                bat 'pip install -r requirements.txt'
             }
         }
 
         stage('Ejecutar pruebas unitarias') {
             steps {
                 echo 'Ejecutando pruebas...'
-                sh 'pytest -v'
+                bat 'pytest -v'
             }
         }
     }
